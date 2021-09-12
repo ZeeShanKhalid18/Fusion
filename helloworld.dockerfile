@@ -1,6 +1,5 @@
 FROM ruby
-RUN useradd zeeshan && \
-    chown -R zeeshan:zeeshan /
+RUN useradd zeeshan
 USER zeeshan
 EXPOSE 80
 COPY http_server.rb .
