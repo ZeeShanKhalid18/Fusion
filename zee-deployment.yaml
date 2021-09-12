@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zee
+  labels:
+    app: zee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zee
+  template:
+    metadata:
+      labels:
+        app: zee
+    spec:
+      containers:
+      - name: zee
+        image: zee:0.0.1
+        ports:
+        - containerPort: 80
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          
+          
+          
+          
+
