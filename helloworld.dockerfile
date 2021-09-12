@@ -1,6 +1,6 @@
 FROM ruby
-RUN adduser zeeshan
-RUN adduser zeeshan docker
+RUN useradd zeeshan && \
+    chown -R zeeshan:zeeshan /
 USER zeeshan
 EXPOSE 80
 COPY http_server.rb .
