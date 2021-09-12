@@ -1,5 +1,6 @@
 FROM ruby
-RUN adduser -G docker zeeshan
+RUN adduser zeeshan
+RUN adduser zeeshan docker
 USER zeeshan
 EXPOSE 80
 COPY http_server.rb .
